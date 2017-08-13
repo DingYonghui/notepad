@@ -1,0 +1,93 @@
+一、Java.awt.datatransfer包中的Clipboard类(系统剪贴板),
+       此类是所有 Abstract Window Toolkit 实际实现的抽象超类。
+   Toolkit 的子类被用于将各种组件绑定到特定本机工具包实现。 
+	 
+　　（1）、将文本数据复制或剪切到系统剪贴板中
+
+　     　  Clipboard clipboard;
+
+      String temp;
+
+      clipboard=getToolkit().getSystemClipboard();
+
+      StringSelection text=new StringSelection(temp);
+
+      clipboard.setContents(temp,null);  //第二个参数为剪贴板的拥有者，对于文本的复制或剪切可不考虑，可设为null。
+
+　　（2）、从剪贴板取数据到Java程序中
+
+　　       Transferable contents=clipboard.getContents(new Button());  //Transferable对象告诉我们哪些风格的剪贴板信息是Java可用的。
+
+　　       对于系统剪贴板只能使用标准风格：Dataflavor flavor=DataFlavor.stringFlavor();
+
+              判断目前所选风格是否可用：contents.isDataFlavorSupported(flavor);
+
+              获取剪贴板中的数据：
+    
+　      　try{
+
+        String text=(String)contents.getTransferData(flavor);
+
+      }
+     catch(Exception e) {}
+
+
+
+二、jtextpane与jtextarea的区别：
+   jtextpane 这个组件就相当于富文本框，可以插入图片，html代码等。
+   jtextarea 是纯文本域
+   
+   
+三、FileDialog(Frame parent, String title, int mode) 创建一个具有指定标题的文件对话框窗口，用于加载或保存文件。   
+   getFile() 获取此文件对话框的选定文件。
+   getDirectory() 获取此文件对话框的目录。
+
+四、awt工具包Choice 类表示一个弹出式选择菜单。当前的选择显示为菜单的标题。
+  Choice ColorChooser = new Choice();
+  ColorChooser.add("Green");
+  ColorChooser.add("Red");
+  ColorChooser.add("Blue");
+  
+五、标准对话框：JOptionPane 有助于方便地弹出要求用户提供值或向其发出通知的标准对话框。
+  （1）showConfirmDialog 询问一个确认问题，如 yes/no/cancel。 
+  
+  （2）showInputDialog 提示要求某些输入。 
+  
+  （3）showMessageDialog 告知用户某事已发生。 
+    例子：
+     1）JOptionPane.showMessageDialog(notepadUI, "读入错误",  "警告",   JOptionPane.WARNING_MESSAGE);
+                                                                                             容器                     message，    title，    类型
+  （4）showOptionDialog 上述三项的大统一 (Grand Unification)。 
+ 
+六、 javax.swing.text 类 JTextComponent
+    void setSelectionEnd(int selectionEnd) 将选择结束点设置为指定的位置。      
+    void setSelectionStart(int selectionStart)  将选定起始点设置为指定的位置。 
+       
+    int getSelectionEnd() 返回选定文本的结束位置。 
+    int getSelectionStart() 返回选定文本的起始位置。 
+       
+    setSelectionColor(Color c) 设置用于呈现选定的当前颜色。
+    
+    setSelectedTextColor(Color c) 设置用于呈现选定文本的当前颜色。
+       
+七、
+    equalsIgnoreCase(String anotherString) 将此 String 与另一个 String 比较，不考虑大小写。       
+ 
+  
+  
+  
+八、在Swing类实现文本监听
+　　对于Swing中的JTextField类，实现监控的过程则相对复杂一些。JTextField中没有设置TextListener，
+       而是将对文本的监视任务放入了另外一个接口Document中。因此首先要为JTextField对象申请一个Document
+       接口对象，使用的方法是JTextField1.getDocument()（本文给出的JTextField对象名为
+   JTextField1）。获得Document后，就可以使用addDocumentListener()来得到一个
+       和TextListener功能类似的监听接口。DocumentListener的完整声明如下：
+　　
+   interface DocumentListener extends EventListener 
+　　它在包java.swing.event.DocumentListener中定义，其中包含了三个方法：
+　　?public void changedUpdate(DocumentEvent e)：监听文本属性的变化；
+　　?public void insertUpdate(DocumentEvent e)：监听文本内容的插入事件；
+　　?public void removeUpdate(DocumentEvent e)：监听文本内容的删除事件。
+　　和处理TextField组件一样，定义新类（本文为Swing_OnValueChanged）、加入说明、编写代码后，就可以实现所需功能了。
+  
+  
