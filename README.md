@@ -4,22 +4,22 @@
 
 ## 项目演示
 ### 基本功能
-1. 首页  
+1. 首页<br/>  
 ![](https://github.com/DingYonghui/notepad/blob/master/screenshots/main.jpg)
-2. 文件  
+2. 文件<br/>  
 ![](https://github.com/DingYonghui/notepad/blob/master/screenshots/file.jpg)
-3. 编辑  
+3. 编辑<br/>    
 ![](https://github.com/DingYonghui/notepad/blob/master/screenshots/edit.jpg)
-4. 查找  
+4. 查找<br/>    
 ![](https://github.com/DingYonghui/notepad/blob/master/screenshots/find.jpg)
-5. 字体  
+5. 字体<br/>    
 ![](https://github.com/DingYonghui/notepad/blob/master/screenshots/font.jpg)
-6. 关于  
+6. 关于<br/>    
 ![](https://github.com/DingYonghui/notepad/blob/master/screenshots/about.jpg)
 
 
 ### 高级功能
-7. 代码高亮和行号  
+7. 代码高亮和行号<br/>    
 ![](https://github.com/DingYonghui/notepad/blob/master/screenshots/highlight%20and%20more.jpg)
 
 ## 如何交流、反馈
